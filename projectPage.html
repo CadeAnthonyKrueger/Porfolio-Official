@@ -1,12 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>New Page</title>
-    </head>
-    <body>
-        <h1>Welcome to the New Page</h1>
-        <p>This is the content of the new page!</p>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React in HTML</title>
+    <link rel="stylesheet" href="./react/css/ProjectPage.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+</head>
+<body id='body' style="overflow-y: scroll; overflow-x: hidden; height: 500vh; padding: 0; margin: 0;">
+
+    <script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type="text/babel">
+
+      const SkillsAndTechContainer = ({ title }) => {
+
+        const skills = ['Simplistic AI', 'Algorithms', 'Recursion'];
+        const technologies = ['Java', 'Gradle'];
+        var [curr, color] = title === 'Skills' ? [skills, 'rgb(226, 67, 67)'] : [technologies, 'rgb(99, 145, 251)'];
+        
+        return (
+          <div className="SkillsAndTechContainer" style={{ borderTop: `2px solid ${color}`}}>
+            <strong>{title}</strong>
+            { 
+              curr.map((element, index) => {
+                return <div className="SkillTechElement" key={index}>{element}</div>
+              })
+            }
+          </div>
+        );
+
+      };
+
+      const ProjectView = () => {
+
+        return (
+          <div className="ProjectView">
+            <div className="ProjectTitle">
+              { 'Tic-Tac-Toe Minimax AI' }
+            </div>
+            <div className="ProjectSubTitle">
+              Software<span style={{ color: '#7fffd4' }}>&bull;</span>
+            </div>
+            <div className="ProjectDescAndSkillsContainer"> 
+              <p className="Description">This project makes use of the Minimax algorithm to aid in the understanding of how it works, and show how it can be applied to larger scale solutions on more complicated tasks. I use this project to demonstrate my own understanding of algorithms and how to think through them efficiently and effectively.</p>
+              <div className="SkillsAndTech">
+                <SkillsAndTechContainer title='Skills' />
+                <SkillsAndTechContainer title='Technologies' />
+              </div>
+            </div>
+          </div>
+        );
+
+      };
+
+      const ProjectPage = () => {
+
+        return (
+          <div className="ProjectPage">
+            <ProjectView />
+          </div>
+        );
+
+      };
+
+      ReactDOM.render(<ProjectPage />, document.getElementById('body'));
+
+    </script>
+
+</body>
 </html>
+
+
+
+

@@ -496,13 +496,13 @@ Copyright <script>document.write(new Date().getFullYear());</script> All rights 
 									name: 'Tic-Tac-Toe Minmax',
 									overview: 'Algorithms',
 									skills: ['Java', 'Simplistic AI'],
-									image: "url(images/img-5.jpg)"
+									image: "url(images/tictactoe.jpg)"
 								},
 								{
 									name: 'Zillow Homes: Regression Analysis',
 									overview: 'Data Analytics',
 									skills: ['R', 'Web Scraping', 'Regression', 'Modeling'],
-									image: "url(images/img-5.jpg)"
+									image: "url(images/zillow-regression.webp)"
 								}
 							];
 						
@@ -519,6 +519,11 @@ Copyright <script>document.write(new Date().getFullYear());</script> All rights 
 								const projectDiv = document.createElement('div');
 								projectDiv.classList.add('project');
 								projectDiv.style.backgroundImage = project.image;
+								projectDiv.style.cursor = 'pointer';
+
+								projectDiv.addEventListener("click", function() {
+									window.location.href = './projectPage.html';
+								});
 						
 								// Create description div
 								const descDiv = document.createElement('div');
